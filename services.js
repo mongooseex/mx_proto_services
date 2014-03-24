@@ -28,7 +28,7 @@ exports.startServices = function startServicesServer() {
   });
 
   // start server
-  server.listen(appSettings.server.port);
+  server.listen(process.env.PORT || appSettings.server.port);
 
   return server;
 };
