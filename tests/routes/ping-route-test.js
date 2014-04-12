@@ -15,16 +15,15 @@ describe('GET /api/ping', function () {
         done(err);
       }
 
-      var property = 'data'
-        , value = 'pong'
-        ;
+      var expected = obj.data
+        , actual = 'pong';
 
       expect(err).to.be.a('null');
       expect(req).to.not.be.a('null');
       expect(res).to.not.be.a('null');
       expect(obj).to.not.be.a('null');
 
-      expect(obj[property]).to.equal(value);
+      expect(expected).to.equal(actual);
 
       done();
     });
