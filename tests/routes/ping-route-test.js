@@ -4,8 +4,8 @@ var expect = require('chai').expect
   , appSettings = require('../../app-settings.json')
   , dns = appSettings.server.host + ':' + appSettings.server.port.toString()
   , service = require('../../services').startServices()
-  , client = require('restify')
-      .createJsonClient({ url: 'http://' + dns, version: '*' })
+  , restify = require('restify')
+  , client = restify.createJsonClient({ url: 'http://' + dns, version: '*' })
   ;
 
 describe('GET /api/ping', function () {
