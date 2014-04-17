@@ -2,7 +2,7 @@
 
 var appSettings = require('./app-settings.json')
   , restify = require('restify')
-  , restifyOAuth2 = require("restify-oauth2")
+  //, restifyOAuth2 = require('restify-oauth2')
   , path = require('path')
   , glob = require('glob')
   , server = { }

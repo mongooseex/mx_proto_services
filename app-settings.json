@@ -8,5 +8,8 @@
   "routes": {
     "path": "routes",
     "pattern": "*-routes.js"
+  },
+  "connectionStrings": {
+    "neo4j": "http://mxsandbox.sb01.stations.graphenedb.com:24789/db/data/"
   }
 }
