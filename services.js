@@ -2,7 +2,8 @@
 
 var appSettings = require('./app-settings.json')
   , restify = require('restify')
-  //, restifyOAuth2 = require('restify-oauth2')
+  , restifyOAuth2 = require('restify-oauth2')
+  , oauthHooks = require('./business/oauth-hooks')
   , path = require('path')
   , glob = require('glob')
   , server = { }
@@ -12,17 +13,18 @@ var appSettings = require('./app-settings.json')
   ;
 
 exports.startServices = function startServicesServer() {
+
   server = restify.createServer({
     name: appSettings.server.name,
     version: appSettings.server.version
   });
 
   // setup server
-  //server.use(restify.authorizationParser());
+  server.use(restify.authorizationParser());  
   server.use(restify.bodyParser({ mapParams: false }));
 
   // enable oauth2 - u:pass grant
-  //restifyOAuth2cc(server, options)
+  restifyOAuth2.ropc(server, { hooks: oauthHooks });
 
   // active routes
   glob.sync(routePattern).forEach(function iterateFiles (file) {
