@@ -2,8 +2,9 @@
 
 // original example: https://github.com/domenic/restify-oauth2
 
-var _ = require("lodash");
-var crypto = require("crypto");
+var _ = require("lodash")
+  , crypto = require("crypto")
+  ;
 
 var database = {
   clients: {
